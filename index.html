@@ -1,67 +1,518 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 Assam BN NCC, Dhubri
-P.B. College, Gauripur</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: auto;
-        }
-        h1, h2 {
-            color: #0056b3;
-        }
-        .ncc-info p {
-            margin-bottom: 10px;
-        }
-        .contact-info {
-            margin-top: 20px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-    </style>
+    <title>P.B. College NCC Unit | 7 Assam BN NCC, Dhubri</title>
+    <meta name="description" content="Official website of P.B. College NCC Unit, 7 Assam BN NCC, Dhubri, North Eastern Region (NER). Unity and Discipline.">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Defense & UI Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>7 Assam BN NCC, Dhubri</h1>
-<h3> P.B. College, Dhubri</h3>
-        <p>Welcome to the official page of the 7 Assam BN NCC Unit at Pramathesh Barua College</p>
 
-        <div class="ncc-info">
-            <h2>About NCC at P.B. College</h2>
-            <p>The National Cadet Corps (NCC) unit at Pramathesh Barua College plays a vital role in shaping the youth of the region. It instills qualities of leadership, discipline, and patriotism among students, preparing them to be responsible citizens and future leaders.</p>
-            <p>Our cadets actively participate in various training camps, social service activities, and adventure sports, contributing significantly to community development and national building.</p>
-        </div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
 
-        <div class="college-info">
-            <h2>Pramathesh Barua College,Gauripur</h2>
-            <p>Pramathesh Barua College, located in Gauripur,  Dhubri, Assam, is a renowned educational institution dedicated to providing quality education and fostering holistic development among its students. The college offers a wide range of academic programs and encourages participation in extracurricular activities like NCC.</p>
-            <p><strong>Principal:</strong> Dr. Kalyan Das</p>
-        </div>
-
-        <div class="ncc-leadership">
-            <h2>NCC Commanding Officer</h2>
-            <p>The 7 Assam BN NCC Unit is proudly led by:</p>
-            <p><strong>Commanding Officer (CO):</strong> Lt Col P.G. Naidu</p>
-        </div>
-
-        <div class="contact-info">
-            <h2>Contact Information</h2>
-            <p>For more information about the NCC unit or P.B. College, please visit the college's official website or contact the college administration.</p>
-            <p><strong>P.B. College Website:</strong> <a href="https://pbcollege.ac.in/" target="_blank">pbcollege.ac.in</a></p>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="military-crest-loader">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h2>7 ASSAM BN NCC</h2>
+            <p>P.B. COLLEGE, GAURIPUR</p>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
         </div>
     </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Floating Particles Container -->
+    <div id="particles-container"></div>
+
+    <!-- Sticky Navbar -->
+    <header class="header" id="navbar">
+        <nav class="nav-container">
+            <a href="#home" class="logo-container">
+                <div class="logo-badge">
+                    <i class="fa-solid fa-shield-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="unit-name">P.B. COLLEGE NCC</span>
+                    <span class="sub-unit">7 Assam BN, Dhubri</span>
+                </div>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#leadership" class="nav-link">Leadership</a></li>
+                <li><a href="#training" class="nav-link">Training</a></li>
+                <li><a href="#activities" class="nav-link">Activities</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg" style="background-image: url('images/hero-bg.jpg');"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content container">
+                <div class="hero-badge animate-fade-down">
+                    <span><i class="fa-solid fa-star"></i> North Eastern Region (NER) Directorate <i class="fa-solid fa-star"></i></span>
+                </div>
+                <h1 class="hero-title">
+                    P.B. COLLEGE NCC UNIT
+                </h1>
+                <div class="typing-container">
+                    <span class="static-text">7 Assam BN NCC, Dhubri | </span>
+                    <span id="typing-text" class="dynamic-text"></span>
+                    <span class="typing-cursor"></span>
+                </div>
+                <p class="hero-motto animate-fade-up">
+                    "UNITY AND DISCIPLINE"
+                </p>
+                <div class="hero-buttons animate-fade-up">
+                    <a href="#about" class="btn btn-primary">
+                        <span>Explore Unit</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>Join / Enquire</span>
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                </div>
+
+                <!-- Live Stats Bar -->
+                <div class="hero-stats-bar">
+                    <div class="stat-item">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <div>
+                            <h3 class="counter" data-target="120">0</h3>
+                            <p>Active Cadets</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-award"></i>
+                        <div>
+                            <h3 class="counter" data-target="7">0</h3>
+                            <p>Assam Battalion</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <div>
+                            <h3 class="counter" data-target="25">0</h3>
+                            <p>Annual Camps</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-wave"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Institutional Profile</span>
+                    <h2 class="section-title">About Our Unit</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-text-content">
+                        <h3>National Cadet Corps (NCC)</h3>
+                        <p>The National Cadet Corps is a premier youth organization in India, playing a pivotal role in molding the youth into disciplined, responsible, and patriotic citizens. Operating under the Ministry of Defence, it provides opportunities for the nation's youth for their overall development with a sense of duty, commitment, dedication, discipline, and moral values.</p>
+                        
+                        <h3 class="mt-4">P.B. College NCC Unit</h3>
+                        <p>Affiliated under the <strong>7 Assam BN NCC, Dhubri</strong> within the North Eastern Region (NER) Directorate, the P.B. College, Gauripur NCC unit stands as a beacon of excellence, shaping motivated youth through rigorous drill, weapon training, social outreach, and leadership camps.</p>
+
+                        <div class="motto-box">
+                            <div class="motto-item">
+                                <i class="fa-solid fa-bullseye"></i>
+                                <div>
+                                    <h4>Mission</h4>
+                                    <p>To develop character, camaraderie, discipline, secular outlook, the spirit of adventure and ideals of selfless service amongst young citizens.</p>
+                                </div>
+                            </div>
+                            <div class="motto-item">
+                                <i class="fa-solid fa-eye"></i>
+                                <div>
+                                    <h4>Vision</h4>
+                                    <p>To create a human resource of organized, trained and motivated youth, to provide leadership in all walks of life and always be available for the service of the nation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual-content">
+                        <div class="image-card-stack">
+                            <img src="images/about-1.jpg" alt="NCC Cadets Parade" class="stack-img img-1">
+                            <img src="images/about-2.jpg" alt="NCC Training session" class="stack-img img-2">
+                            <div class="badge-float">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <div>
+                                    <span>P.B. COLLEGE</span>
+                                    <strong>GAURIPUR, DHUBRI</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Section (ANO & SM) -->
+        <section id="leadership" class="section leadership-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Command & Control</span>
+                    <h2 class="section-title">Unit Leadership</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="leadership-grid">
+                    <!-- ANO Card -->
+                    <div class="defence-card ano-card">
+                        <div class="card-ribbon">Associate NCC Officer</div>
+                        <div class="card-img-wrapper">
+                            <img src="images/ano.jpg" alt="Lt. Col. P. G. Naidu">
+                            <div class="card-img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>Lt. Col. P. G. Naidu</h3>
+                            <span class="rank-badge">Associate NCC Officer (ANO)</span>
+                            <p class="welcome-message">
+                                "Welcome to the official portal of P.B. College NCC Unit. Our core mission is to instill unwavering discipline, tactical awareness, and a profound sense of patriotism among our cadets. Train hard, lead with integrity, and serve the nation."
+                            </p>
+                            <div class="card-footer-info">
+                                <span><i class="fa-solid fa-location-dot"></i> 7 Assam BN NCC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SM Card -->
+                    <div class="defence-card sm-card">
+                        <div class="card-ribbon senior-ribbon">Senior Most Cadet</div>
+                        <div class="card-img-wrapper">
+                            <img src="images/sm.jpg" alt="SM Jonunthar Traithe">
+                            <div class="card-img-overlay"></div>
+                        </div>
+                        <div class="card-body">
+                            <h3>SM Jonunthar Traithe</h3>
+                            <span class="rank-badge">Senior Most (SM)</span>
+                            <p class="welcome-message">
+                                "As Senior Most, I take immense pride in upholding the highest standards of camaraderie, operational readiness, and drill precision. We stand united to bring honor to P.B. College and the entire Dhubri battalion."
+                            </p>
+                            <div class="card-footer-info">
+                                <span><i class="fa-solid fa-medal"></i> Senior Leadership</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training Section -->
+        <section id="training" class="section training-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Rigorous Curriculum</span>
+                    <h2 class="section-title">Cadet Training Programs</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="training-grid">
+                    <div class="training-card">
+                        <div class="training-icon"><i class="fa-solid fa-person-walking-boot"></i></div>
+                        <h3>Drill</h3>
+                        <p>Precision foot drill and ceremonial parades instilling split-second obedience, coordination, and posture.</p>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                        <h3>Weapon Training</h3>
+                        <p>In-depth tactical instruction on handling, safety, and firing mechanics of standard military weaponry.</p>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-icon"><i class="fa-solid fa-map"></i></div>
+                        <h3>Map Reading</h3>
+                        <p>Mastering terrain analysis, grid references, compass navigation, and tactical field orientation.</p>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-icon"><i class="fa-solid fa-hands-holding-child"></i></div>
+                        <h3>Social Service</h3>
+                        <p>Dedicated community engagement projects emphasizing civic duty, health camps, and rural assistance.</p>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-icon"><i class="fa-solid fa-spa"></i></div>
+                        <h3>Yoga</h3>
+                        <p>Routine physical conditioning, mental wellness, and stamina building through traditional yogic practice.</p>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-icon"><i class="fa-solid fa-mountain"></i></div>
+                        <h3>Adventure Activities</h3>
+                        <p>Trekking, obstacle courses, and survival expeditions designed to build courage and resilience.</p>
+                    </div>
+                    <div class="training-card">
+                        <div class="training-icon"><i class="fa-solid fa-tent"></i></div>
+                        <h3>Camps</h3>
+                        <p>CATC, ATC, and national integration camps promoting unified living and team leadership.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="section activities-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Community & Nation Building</span>
+                    <h2 class="section-title">Key Activities</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon-wrap"><i class="fa-solid fa-seedling"></i></div>
+                        <h3>Tree Plantation</h3>
+                        <p>Environmental drives across Gauripur to promote green cover and sustainable ecological practices.</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon-wrap"><i class="fa-solid fa-broom"></i></div>
+                        <h3>Swachh Bharat</h3>
+                        <p>Active cleanliness campaigns within college grounds and surrounding municipal zones.</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon-wrap"><i class="fa-solid fa-droplet"></i></div>
+                        <h3>Blood Donation</h3>
+                        <p>Organizing voluntary blood donation camps in coordination with local medical authorities.</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon-wrap"><i class="fa-solid fa-flag"></i></div>
+                        <h3>Independence Day Parade</h3>
+                        <p>Spectacular ceremonial guard of honor and national flag hoisting parades on 15th August.</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon-wrap"><i class="fa-solid fa-monument"></i></div>
+                        <h3>Republic Day Parade</h3>
+                        <p>Displaying pristine military discipline and marching salutes during Republic Day celebrations.</p>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon-wrap"><i class="fa-solid fa-bullhorn"></i></div>
+                        <h3>Awareness Programmes</h3>
+                        <p>Rallies and seminars educating society on road safety, digital literacy, and health welfare.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Visual Archives</span>
+                    <h2 class="section-title">Unit Gallery</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Gallery Grid using all images provided -->
+                <div class="masonry-gallery">
+                    <div class="gallery-item" data-src="images/gallery-1.jpg">
+                        <img src="images/gallery-1.jpg" alt="NCC Activity 1" loading="lazy">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-src="images/gallery-2.jpg">
+                        <img src="images/gallery-2.jpg" alt="NCC Activity 2" loading="lazy">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-src="images/gallery-3.jpg">
+                        <img src="images/gallery-3.jpg" alt="NCC Activity 3" loading="lazy">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-src="images/gallery-4.jpg">
+                        <img src="images/gallery-4.jpg" alt="NCC Activity 4" loading="lazy">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-src="images/gallery-5.jpg">
+                        <img src="images/gallery-5.jpg" alt="NCC Activity 5" loading="lazy">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                    <div class="gallery-item" data-src="images/gallery-6.jpg">
+                        <img src="images/gallery-6.jpg" alt="NCC Activity 6" loading="lazy">
+                        <div class="gallery-overlay"><i class="fa-solid fa-expand"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section achievements-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Milestones & Honors</span>
+                    <h2 class="section-title">Unit Achievements</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="achievements-timeline">
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fa-solid fa-medal"></i></div>
+                        <div class="achievement-content">
+                            <h3>Active Participation in NCC Camps</h3>
+                            <p>Consistent representation of P.B. College cadets in Annual Training Camps (ATC) and Combined Annual Training Camps (CATC).</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                        <div class="achievement-content">
+                            <h3>Community Service Programmes</h3>
+                            <p>Successfully executed multiple local welfare drives, cleanliness initiatives, and public awareness campaigns across Dhubri district.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fa-solid fa-award"></i></div>
+                        <div class="achievement-content">
+                            <h3>Discipline and Leadership Activities</h3>
+                            <p>Recognized for impeccable turn-out, drill proficiency, and exemplary cadet leadership under 7 Assam BN command.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fa-solid fa-landmark"></i></div>
+                        <div class="achievement-content">
+                            <h3>Cultural and National Events</h3>
+                            <p>Stellar performance in national integration events, Republic Day and Independence Day institutional parades.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title">Contact Unit Headquarters</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info-card">
+                        <h3>P.B. College NCC Unit</h3>
+                        <ul class="contact-details-list">
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <strong>Location</strong>
+                                    <p>P.B. College, Gauripur, Dhubri, Assam - 783101</p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <strong>Email Official</strong>
+                                    <p><a href="mailto:pbcollegefeedback@gmail.com">pbcollegefeedback@gmail.com</a></p>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <div>
+                                    <strong>Battalion</strong>
+                                    <p>7 Assam BN NCC, Dhubri (NER Directorate)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.487903975608!2d89.9673!3d26.0753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMsKwMDQnMzEuMSJOIDg5wrA1OCcwMi4zIkU!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="P.B. College Gauripur Map">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-shield-alt"></i>
+                    <span>P.B. College NCC</span>
+                </div>
+                <p>7 Assam BN NCC, Dhubri, North Eastern Region (NER) Directorate. Moulding disciplined youth for the service of India.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Unit</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#training">Training Curriculum</a></li>
+                    <li><a href="#activities">Activities</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>NCC Motto</h4>
+                <div class="footer-motto-box">
+                    <strong>UNITY AND DISCIPLINE</strong>
+                    <p>The official motto of the National Cadet Corps represents the fundamental values of teamwork, integrity, and absolute devotion to duty.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <p>&copy; 2026 P.B. College NCC Unit, 7 Assam BN NCC. All Rights Reserved.</p>
+                <p class="developer-credit">Designed with <i class="fa-solid fa-heart" style="color: var(--army-red);"></i> for P.B. College NCC Unit</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
 </body>
 </html>
