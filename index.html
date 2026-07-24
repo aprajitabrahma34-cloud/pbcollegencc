@@ -215,7 +215,7 @@
             <!-- Statistics Counter -->
             <div class="stats-container glass reveal">
                 <div class="stat-box">
-                    <h3 class="counter" data-target="120">0</h3>
+                    <h3 class="counter" data-target="8">0</h3>
                     <p>Active Cadets</p>
                 </div>
                 <div class="stat-box">
@@ -391,7 +391,7 @@
                 <button class="ai-chat-close" id="closeAiChat"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="ai-chat-body" id="aiChatBody">
-                <p>Jai Hind! I am your virtual NCC Assistant. Ask me anything about P.B. College NCC unit, training camps, or joining procedures!</p>
+                <p>Jai Hind! I am your virtual NCC Assistant. Ask me anything about P.B. College NCC unit, CO, SM, or senior cadets!</p>
             </div>
             <div class="ai-chat-footer">
                 <input type="text" id="aiUserInput" placeholder="Type your question...">
@@ -449,7 +449,7 @@
                     <h3>P.B. College NCC Unit</h3>
                     <p class="address-text"><i class="fa-solid fa-location-dot gold-text"></i> Pramatesh Barua College, Gauripur, Dhubri, Assam - 783331</p>
                     <p class="email-text"><i class="fa-solid fa-envelope gold-text"></i> pbcollegefeedback@gmail.com</p>
-                    <p class="unit-text"><i class="fa-solid fa-shield-halved gold-text"></i> Parent Unit: 7 Assam BN NCC, Dhubri</p>
+                    <p class="unit-text"><i class="fa-solid fa-shield-halved gold-text"></i> Parent Unit: 7 Assam BN NCC, Dhubri (Currently shifted to Golakganj Stadium due to new building construction)</p>
                     <p class="dir-text"><i class="fa-solid fa-compass gold-text"></i> Directorate: North Eastern Region (NER)</p>
                     
                     <div class="social-follow-box" style="margin-bottom: 20px;">
@@ -522,9 +522,8 @@
     <!-- JavaScript File -->
     <script src="script.js"></script>
 
-    <!-- Inline Script for AI Chat Toggle & Lightbox enhancement -->
+    <!-- Inline Script with Detailed Knowledge Base for AI Chat -->
     <script>
-        // AI Chat Toggle Logic
         const toggleBtn = document.getElementById('toggleAiChat');
         const chatBox = document.getElementById('aiChatBox');
         const closeBtn = document.getElementById('closeAiChat');
@@ -544,6 +543,44 @@
             if (e.key === 'Enter') sendMessage();
         });
 
+        // Exact NCC Custom Knowledge Base
+        const nccKnowledgeBase = [
+            {
+                keywords: ["co", "commanding officer", "officer"],
+                answer: "Jai Hind! 7 Assam BN NCC ke Commanding Officer (CO) **Lt Col P.G Naidu** sir hain."
+            },
+            {
+                keywords: ["sm", "subedar major", "jco"],
+                answer: "7 Assam BN NCC ke Subedar Major (SM) **SM Jonunthar Traithe** sir hain."
+            },
+            {
+                keywords: ["cadet", "cadets", "strength", "kitne", "members", "active"],
+                answer: "P.B. College NCC Unit mein filhal total **8 active cadets** hain jo puri dedication ke sath training le rahe hain!"
+            },
+            {
+                keywords: ["senior", "csm", "sergeant", "corporal", "aparajita", "khairul", "bappy", "siba", "leader"],
+                answer: "P.B. College NCC ke senior cadets hain:\n- **CSM (Company Sergeant Major):** Aparajita Brahma\n- **Sergeant:** Khairul Nobi\n- **Sergeant:** Bappy Barman\n- **Corporal:** Siba Das"
+            },
+            {
+                keywords: ["unit", "bn", "assam", "college", "location", "gauripur", "kaha", "address", "building", "stadium"],
+                answer: "P.B. College NCC Unit Pramatesh Barua College, Gauripur, Dhubri, Assam mein sthit hai. Yeh **7 Assam BN NCC** ke under aati hai (jiska head office BN College (Autonomous) ke paas Dhubri mein hai). Filhal Dhubri unit mein nayi building ka construction chalne ki wajah se unit **Golakganj stadium** se operate kar rahi hai."
+            },
+            {
+                keywords: ["motto", "aim", "goal"],
+                answer: "NCC ka official motto **'Unity and Discipline'** (Ekta aur Anushasan) hai."
+            }
+        ];
+
+        function getAiResponse(userQuery) {
+            let query = userQuery.toLowerCase();
+            for (let item of nccKnowledgeBase) {
+                if (item.keywords.some(kw => query.includes(kw))) {
+                    return item.answer;
+                }
+            }
+            return "Jai Hind! Aapne P.B. College ya 7 Assam BN NCC se juda jo sawal pucha hai, uske liye aap hamare official Instagram (@pb_college_ncc) par message kar sakte hain!";
+        }
+
         function sendMessage() {
             const text = userInput.value.trim();
             if (!text) return;
@@ -553,11 +590,12 @@
             userInput.value = '';
             chatBody.scrollTop = chatBody.scrollHeight;
 
-            // Simulated AI Response (You can link this endpoint to Claude/Gemini API via backend or webhook)
+            // Instant Professional AI Reply
             setTimeout(() => {
-                chatBody.innerHTML += `<p style="margin: 8px 0;"><b style="color: #38bdf8;">AI Assistant:</b> Thank you for your question regarding P.B. College NCC. For detailed queries, please connect with our senior cadets or check our official social handles!</p>`;
+                let reply = getAiResponse(text);
+                chatBody.innerHTML += `<p style="margin: 8px 0;"><b style="color: #38bdf8;">NCC AI:</b> ${reply.replace(/\n/g, '<br>')}</p>`;
                 chatBody.scrollTop = chatBody.scrollHeight;
-            }, 1000);
+            }, 500);
         }
     </script>
 </body>
