@@ -12,7 +12,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Custom Style to set NER Trekking Photo as Full Page Background -->
+    <!-- Custom Style for Full Page Background & Professional UI -->
     <style>
         body {
             background-image: linear-gradient(rgba(10, 15, 25, 0.88), rgba(10, 15, 25, 0.96)), url('pb_college_ncc-20260724-0001.jpg') !important;
@@ -24,6 +24,82 @@
         .hero-bg {
             display: none !important;
         }
+
+        /* Social Follow Buttons Styling */
+        .social-follow-box {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .btn-facebook { background: #1877f2; }
+        .btn-social:hover { transform: translateY(-2px); opacity: 0.9; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        /* AI Assistant Floating Widget */
+        #ai-chat-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+        .ai-chat-btn {
+            background: linear-gradient(135deg, #d4af37, #aa771c);
+            color: #000;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #fff;
+        }
+        .ai-chat-btn:hover { transform: scale(1.1); }
+        .ai-chat-box {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 320px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeIn 0.3s ease;
+        }
+        .ai-chat-header {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .ai-chat-header h4 { font-size: 0.95rem; color: #d4af37; margin: 0; font-family: 'Cinzel', serif; }
+        .ai-chat-close { background: none; border: none; color: #fff; cursor: pointer; font-size: 1rem; }
+        .ai-chat-body { padding: 15px; font-size: 0.85rem; color: #cbd5e1; max-height: 250px; overflow-y: auto; }
+        .ai-chat-footer { padding: 10px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 8px; background: rgba(0,0,0,0.2); }
+        .ai-chat-footer input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); padding: 8px 12px; border-radius: 20px; color: #fff; font-size: 0.8rem; outline: none; }
+        .ai-chat-footer button { background: #d4af37; border: none; color: #000; padding: 8px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -93,6 +169,15 @@
             <div class="hero-buttons">
                 <a href="#about" class="btn btn-primary">Explore Unit <i class="fa-solid fa-arrow-right"></i></a>
                 <a href="#contact" class="btn btn-outline">Join / Contact <i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <!-- Social Follow Section inside Hero -->
+            <div class="social-follow-box">
+                <a href="https://www.instagram.com/pb_college_ncc?igsh=cjFpbDd2MGg3enU=" target="_blank" class="btn-social btn-instagram">
+                    <i class="fa-brands fa-instagram"></i> Follow on Instagram
+                </a>
+                <a href="https://www.facebook.com" target="_blank" class="btn-social btn-facebook">
+                    <i class="fa-brands fa-facebook-f"></i> PB College Coy. NCC, Gauripur
+                </a>
             </div>
         </div>
         <div class="scroll-down">
@@ -235,7 +320,7 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
+    <!-- Gallery Section (Interactive Lightbox Enabled) -->
     <section id="gallery" class="section">
         <div class="container">
             <div class="section-header">
@@ -298,6 +383,26 @@
         <div id="lightbox-caption"></div>
     </div>
 
+    <!-- AI Assistant Floating Widget -->
+    <div id="ai-chat-widget">
+        <div class="ai-chat-box" id="aiChatBox">
+            <div class="ai-chat-header">
+                <h4><i class="fa-solid fa-robot"></i> P.B. NCC AI Assistant</h4>
+                <button class="ai-chat-close" id="closeAiChat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="ai-chat-body" id="aiChatBody">
+                <p>Jai Hind! I am your virtual NCC Assistant. Ask me anything about P.B. College NCC unit, training camps, or joining procedures!</p>
+            </div>
+            <div class="ai-chat-footer">
+                <input type="text" id="aiUserInput" placeholder="Type your question...">
+                <button id="aiSendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="ai-chat-btn" id="toggleAiChat" title="Chat with AI Assistant">
+            <i class="fa-solid fa-comment-dots"></i>
+        </div>
+    </div>
+
     <!-- Achievements Section -->
     <section id="achievements" class="section dark-tint">
         <div class="container">
@@ -347,6 +452,15 @@
                     <p class="unit-text"><i class="fa-solid fa-shield-halved gold-text"></i> Parent Unit: 7 Assam BN NCC, Dhubri</p>
                     <p class="dir-text"><i class="fa-solid fa-compass gold-text"></i> Directorate: North Eastern Region (NER)</p>
                     
+                    <div class="social-follow-box" style="margin-bottom: 20px;">
+                        <a href="https://www.instagram.com/pb_college_ncc?igsh=cjFpbDd2MGg3enU=" target="_blank" class="btn-social btn-instagram">
+                            <i class="fa-brands fa-instagram"></i> Instagram (@pb_college_ncc)
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" class="btn-social btn-facebook">
+                            <i class="fa-brands fa-facebook-f"></i> FB: PB College Coy. NCC, Gauripur
+                        </a>
+                    </div>
+
                     <div class="contact-form-box">
                         <h4>Send an Inquiry</h4>
                         <form id="contact-form">
@@ -370,9 +484,9 @@
             <div class="footer-col">
                 <h3>P.B. College NCC</h3>
                 <p>7 Assam BN NCC, Dhubri<br>North Eastern Region Directorate</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <div class="social-links" style="margin-top: 15px;">
+                    <a href="https://www.instagram.com/pb_college_ncc?igsh=cjFpbDd2MGg3enU=" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
@@ -407,6 +521,45 @@
 
     <!-- JavaScript File -->
     <script src="script.js"></script>
+
+    <!-- Inline Script for AI Chat Toggle & Lightbox enhancement -->
+    <script>
+        // AI Chat Toggle Logic
+        const toggleBtn = document.getElementById('toggleAiChat');
+        const chatBox = document.getElementById('aiChatBox');
+        const closeBtn = document.getElementById('closeAiChat');
+        const sendBtn = document.getElementById('aiSendBtn');
+        const userInput = document.getElementById('aiUserInput');
+        const chatBody = document.getElementById('aiChatBody');
+
+        toggleBtn.addEventListener('click', () => {
+            chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+        });
+        closeBtn.addEventListener('click', () => {
+            chatBox.style.display = 'none';
+        });
+
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            // Append User Message
+            chatBody.innerHTML += `<p style="margin: 8px 0; text-align: right;"><b style="color: #d4af37;">You:</b> ${text}</p>`;
+            userInput.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Simulated AI Response (You can link this endpoint to Claude/Gemini API via backend or webhook)
+            setTimeout(() => {
+                chatBody.innerHTML += `<p style="margin: 8px 0;"><b style="color: #38bdf8;">AI Assistant:</b> Thank you for your question regarding P.B. College NCC. For detailed queries, please connect with our senior cadets or check our official social handles!</p>`;
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
 
